@@ -6,7 +6,7 @@ namespace AzTestAPI.Controllers
     [Route("[controller]")]
     public class CodingForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private static readonly string[] Forecasts = new[]
         {
             "Horrific", "Smelly", "Clean", "Dry", "Solid", "Monolithic", "Scalable", "Hacked"
         };
@@ -24,7 +24,8 @@ namespace AzTestAPI.Controllers
             return Enumerable.Range(1, 5).Select(index => new CodingForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                Probablility = Random.Shared.Next(1, 100),
+                Forecast = Forecasts[Random.Shared.Next(Forecasts.Length)]
             })
             .ToArray();
         }
