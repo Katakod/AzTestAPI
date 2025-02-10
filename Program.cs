@@ -30,6 +30,15 @@ namespace AzTestAPI
 
             app.UseAuthorization();
 
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/")
+                {
+                    context.Response.Redirect("/scalar/v1"); 
+                    return;
+                }
+                await next.Invoke();
+            });
 
             app.MapControllers();
 
