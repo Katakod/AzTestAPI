@@ -1,0 +1,6 @@
+@AzTestAPI_HostAddress = http://localhost:5111
+
+GET {{AzTestAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
